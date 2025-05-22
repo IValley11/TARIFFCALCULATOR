@@ -5,10 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tariff Calculator</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    @media (max-width: 768px) {
+      .input-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .input-row input {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }
+  </style>
   <script>
+    function formatCurrency(value) {
+      const number = parseFloat(value.replace(/[^\d.-]/g, ''));
+      return isNaN(number) ? '' : number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    }
+
+    function formatPercentage(value) {
+      const number = parseFloat(value.replace(/[^\d.-]/g, ''));
+      return isNaN(number) ? '' : number.toFixed(2) + '%';
+    }
+
     function calculate() {
       const tariffRate = parseFloat(document.getElementById('tariffRate').value.replace('%', '')) / 100;
+      const unitsSold = parseFloat(document.getElementById('unitsSold').value.replace(/[^\d.-]/g, '')) || 0;
+      const totalSales = parseFloat(document.getElementById('totalSales').value.replace(/[^\d.-]/g, '')) || 0;
       const tariffCOGS = parseFloat(document.getElementById('tariffCOGS').value.replace(/[^\d.-]/g, '')) || 0;
+      const otherCOGS = parseFloat(document.getElementById('otherCOGS').value.replace(/[^\d.-]/g, '')) || 0;
+      const operatingExpense = parseFloat(document.getElementById('operatingExpense').value.replace(/[^\d.-]/g, '')) || 0;
+
       const tariffImpact = tariffCOGS * tariffRate;
       alert('Estimated Tariff Impact: ' + tariffImpact.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
     }
@@ -60,7 +87,7 @@
         <input type="text" id="operatingExpense" placeholder="e.g., 900000">
       </div>
 
-      <button onclick="calculate()">Calculate</button>
+      <button onclick="calculate()">Calculate Tariff Impact</button>
     </div>
   </div>
 </body>
