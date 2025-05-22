@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +10,10 @@
 <body>
   <div class="calculator">
     <h1>Tariff Calculator</h1>
-    <p class="link">
-      <a href="https://tradecomplianceresourcehub.com/2025/05/16/trump-2-0-tariff-tracker/" target="_blank">
-        Click here to look up Current Tariff Rate by Country
-      </a>
-    </p>
-
     <div class="inputs">
       <h2>Inputs</h2>
       <label>Tariff Rate (%): <input type="text" id="tariffRate" onblur="formatPercentage(this)"></label>
+      <a id="tariffRateLink" href="https://tradecomplianceresourcehub.com/2025/05/16/trump-2-0-tariff-tracker/" target="_blank">Click here to look up Current Tariff Rate by Country</a>
       <label># of units sold last 12 months: <input type="text" id="unitsSold" onblur="formatNumber(this)"></label>
 
       <h3>Profit and Loss Inputs (Last 12 Months):</h3>
@@ -68,7 +64,6 @@
       </div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
