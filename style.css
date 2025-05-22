@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -29,27 +30,57 @@ h1 {
 }
 
 .inputs label {
-  display: block;
-  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 10px auto;
+  font-weight: bold;
 }
 
 input[type="text"] {
   width: 200px;
   padding: 5px;
   margin-left: 10px;
+  background-color: #d9f0ff;
+  border: 1px solid #ccc;
 }
 
 button {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 14px 28px;
   background: #007bff;
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-table {
+small.description {
+  display: block;
+  text-align: left;
+  max-width: 600px;
+  margin: 5px auto 15px auto;
+  font-weight: normal;
+  font-size: 13px;
+  color: #333;
+}
+
+.inputs h3 {
+  text-align: left;
+  max-width: 600px;
+  margin: 20px auto 10px auto;
+}
+
+.inputs h2 {
+  background-color: #b2e0ff;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.results table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 15px;
@@ -101,4 +132,19 @@ th.after {
   text-align: center;
   font-weight: bold;
   margin: 10px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .inputs label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .inputs input[type="text"] {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  button {
+    width: 100%;
+  }
 }

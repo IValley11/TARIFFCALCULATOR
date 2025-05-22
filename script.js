@@ -1,3 +1,4 @@
+
 function formatCurrency(input) {
   let value = parseFloat(input.value.replace(/[$,]/g, ''));
   if (!isNaN(value)) {
