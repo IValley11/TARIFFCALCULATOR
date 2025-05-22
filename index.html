@@ -8,27 +8,24 @@
 </head>
 <body>
   <div class="calculator">
-    <h1>Tariff Calculator</h1>
-    <p class="link">
-      <a href="https://tradecomplianceresourcehub.com/2025/05/16/trump-2-0-tariff-tracker/" target="_blank">
-        Click here to look up Current Tariff Rate by Country
-      </a>
-    </p>
+    <h1 style="color: #0a399a;">Tariff Calculator</h1>
+    
 
     <div class="inputs">
       <h2>Inputs</h2>
-      <label>Tariff Rate (%): <input type="text" id="tariffRate" onblur="formatPercentage(this)"></label>
-      <label># of units sold last 12 months: <input type="text" id="unitsSold" onblur="formatNumber(this)"></label>
+      <div class="input-group"><label>Tariff Rate (%):</label><input type="text" id="tariffRate" onblur="formatPercentage(this)"></div>
+<div class="link" style="color: #0a399a; font-weight: bold; margin-top: 5px;"><a href="https://tradecomplianceresourcehub.com/2025/05/16/trump-2-0-tariff-tracker/" target="_blank" style="color: #0a399a; font-weight: bold;">Click here to look up Current Tariff Rate by Country</a></div>
+      <div class="input-group"><label># of units sold last 12 months:</label><input type="text" id="unitsSold" onblur="formatNumber(this)"></div>
 
       <h3>Profit and Loss Inputs (Last 12 Months):</h3>
-      <label>Total Sales: <input type="text" id="totalSales" onblur="formatCurrency(this)"></label>
-      <label>COGS Subject to Tariffs ($): <input type="text" id="tariffCOGS" onblur="formatCurrency(this)"></label>
+      <div class="input-group"><label>Total Sales:</label><input type="text" id="totalSales" onblur="formatCurrency(this)"></div>
+      <div class="input-group"><label>COGS Subject to Tariffs ($):</label><input type="text" id="tariffCOGS" onblur="formatCurrency(this)"></div>
       <small class="description">Custom Value that usually relates to product cost, insurance and international freight expenses</small>
 
-      <label>Other COGS: <input type="text" id="otherCOGS" onblur="formatCurrency(this)"></label>
+      <div class="input-group"><label>Other COGS:</label><input type="text" id="otherCOGS" onblur="formatCurrency(this)"></div>
       <small class="description">All other COGS not related to Custom Value (i.e. Packaging, shipping from port to warehouse, handling fees etc.)</small>
 
-      <label>Total Operational Expense: <input type="text" id="operatingExpense" onblur="formatCurrency(this)"></label>
+      <div class="input-group"><label>Total Operational Expense:</label><input type="text" id="operatingExpense" onblur="formatCurrency(this)"></div>
     </div>
 
     <button onclick="calculate()">Calculate</button>
