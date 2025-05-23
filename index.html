@@ -6,26 +6,23 @@
   <title>Tariff Calculator</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    h1 {
+    /* Inline overrides for updated typography */
+    h1.main-header {
       color: #0A399A;
-      font-size: 24px;
+      font-size: 32px;
       font-weight: bold;
-    }
-    .link {
       text-align: center;
-      margin-bottom: 10px;
     }
     .link a {
       color: #0A399A;
+      font-size: 18px;
+      font-weight: bold;
       display: inline-block;
       margin-top: 5px;
-    }
-    button {
-      font-weight: bold;
-      font-size: 18px;
-      padding: 14px 28px;
+      text-align: center;
     }
     .inputs label {
+      font-size: 22px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -33,37 +30,53 @@
       margin: 10px auto;
       font-weight: bold;
     }
-    .inputs input[type="text"] {
-      width: 200px;
-      padding: 5px;
-      background-color: #d9f0ff;
-      border: 1px solid #ccc;
-    }
-    .inputs small.description {
-      display: block;
-      text-align: left;
-      max-width: 600px;
-      margin: 5px auto 15px auto;
-      font-weight: normal;
-      font-size: 13px;
-      color: #333;
-    }
-    .inputs h2 {
-      background-color: #b2e0ff;
-      padding: 10px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .inputs h3 {
+    /* Profit and Loss Inputs heading updated to 28px italic and color */
+    h3.pl-inputs {
+      font-size: 28px;
+      font-style: italic;
+      color: #0A399A;
       text-align: left;
       max-width: 600px;
       margin: 20px auto 10px auto;
+    }
+    /* Align and style loss label/value under RESULTS */
+    .results .loss-label {
+      font-size: 21px;
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      text-align: left;
+    }
+    .results .loss-value {
+      font-size: 21px;
+      background-color: yellow;
+      padding: 2px 6px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Align P&L heading under RESULTS */
+    h3.pl-before-after {
+      font-size: 21px;
+      text-align: left;
+      display: block;
+      margin: 0;
+      margin-top: 10px;
+      max-width: 600px;
+    }
+    /* Before/After table header typography */
+    .results table th.before {
+      font-size: 18px;
+      color: green;
+    }
+    .results table th.after {
+      font-size: 18px;
+      color: #8B0000;
     }
   </style>
 </head>
 <body>
   <div class="calculator">
-    <h1>Tariff Calculator</h1>
+    <h1 class="main-header">Tariff Calculator</h1>
     <div class="link">
       <a href="https://tradecomplianceresourcehub.com/2025/05/16/trump-2-0-tariff-tracker/" target="_blank">
         Click here to look up Current Tariff Rate by Country
@@ -72,12 +85,12 @@
 
     <div class="inputs">
       <h2>Inputs</h2>
-      <label>Tariff Rate (%): <input type="text" id="tariffRate" onblur="formatPercentage(this)"></label>
+      <label>Tariff Rate %: <input type="text" id="tariffRate" onblur="formatPercentage(this)"></label>
       <label># of units sold last 12 months: <input type="text" id="unitsSold" onblur="formatNumber(this)"></label>
 
-      <h3>Profit and Loss Inputs (Last 12 Months):</h3>
+      <h3 class="pl-inputs">Profit and Loss Inputs:</h3>
       <label>Total Sales: <input type="text" id="totalSales" onblur="formatCurrency(this)"></label>
-      <label>COGS Subject to Tariffs ($): <input type="text" id="tariffCOGS" onblur="formatCurrency(this)"></label>
+      <label>COGS subject to Tariff ($): <input type="text" id="tariffCOGS" onblur="formatCurrency(this)"></label>
       <small class="description">Custom Value that usually relates to product cost, insurance and international freight expenses</small>
 
       <label>Other COGS: <input type="text" id="otherCOGS" onblur="formatCurrency(this)"></label>
@@ -90,15 +103,18 @@
 
     <div class="results">
       <h2>RESULTS</h2>
-      <p><strong>Total Loss due to Tariff Impact:</strong> <span id="tariffCost"></span></p>
+      <p>
+        <strong class="loss-label">Total Loss due to Tariff Impact:</strong>
+        <span class="loss-value" id="tariffCost"></span>
+      </p>
 
-      <h3>Profit and Loss Before and After Tariffs</h3>
+      <h3 class="pl-before-after">Profit and Loss Before and After Tariffs:</h3>
       <table>
         <thead>
           <tr><th></th><th class="before">Before</th><th class="after">After</th></tr>
         </thead>
         <tbody>
-          <tr><td>Total Sales</td><td id="salesBefore"></td><td id="salesAfter"></td></tr>
+          <tr><td><strong>Total Sales</strong></td><td id="salesBefore"></td><td id="salesAfter"></td></tr>
           <tr><td>COGS subject to Tariff</td><td id="tariffCOGSBefore"></td><td id="tariffCOGSAfter"></td></tr>
           <tr><td>Other COGS</td><td id="otherCOGSBefore"></td><td id="otherCOGSAfter"></td></tr>
           <tr><td>Tariff Costs</td><td>$0</td><td id="tariffCostVal"></td></tr>
